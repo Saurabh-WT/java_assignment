@@ -7,13 +7,13 @@ public static void main(String[] args) {
     try {
 
         BookItem book1 = new BookItem();
-
+        System.out.println();
         //setting all remaining values
         book1.setTitle("Zero to One");
         book1.setAuthor("Blake Masters and Peter Thiel");
         book1.setISBN("ED731441");
 
-        System.out.println(" Title: "+ book1.getTitle()+" Author: "+book1.getAuthor()+ " ISBN: "+book1.getISBN());
+        System.out.println("Title: "+ book1.getTitle()+" Author: "+book1.getAuthor()+ " ISBN: "+book1.getISBN());
 
 
     }catch (Exception e){

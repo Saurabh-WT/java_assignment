@@ -3,25 +3,29 @@ public class PracticeOne {
     // Create subclasses for specific types of animals (e.g., mammals, birds,
     // reptiles) that inherit from a common superclass.
     public static void main(String[] args) {
-        System.out.println("Mammal sub-class inheriting function from Animal parent class");
-        Animals cat = new Mammals();
-        cat.eat();
-        cat.walk();
-        cat.sleep();
+        try {
+            System.out.println("Mammal sub-class inheriting function from Animal parent class");
+            Animals cat = new Mammals();
+            cat.eat();
+            cat.walk();
+            cat.sleep();
 
-        System.out.println();
-        System.out.println("Birds sub-class inheriting function from Animal parent class");
-        Animals sparrow = new Birds();
-        sparrow.eat();
-        sparrow.walk();
-        sparrow.sleep();
+            System.out.println();
+            System.out.println("Birds sub-class inheriting function from Animal parent class");
+            Animals sparrow = new Birds();
+            sparrow.eat();
+            sparrow.walk();
+            sparrow.sleep();
 
-        System.out.println();
-        System.out.println("Reptile sub-class inheriting function from Animal parent class");
-        Animals lizard =  new Reptiles();
-        lizard.eat();
-        lizard.walk();
-        lizard.sleep();
+            System.out.println();
+            System.out.println("Reptile sub-class inheriting function from Animal parent class");
+            Animals lizard = new Reptiles();
+            lizard.eat();
+            lizard.walk();
+            lizard.sleep();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
  class Animals{

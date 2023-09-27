@@ -5,19 +5,25 @@ public class ExerciseOne {
     // subclasses.
     public static void main(String[] args) {
 
-        System.out.println("Example of Java inheritance Hierarchy(check code)");
+        try {
+            System.out.println("Example of Java inheritance Hierarchy(check code)");
 
-        Car car1= new Car("Ford","Mustang", 2008);
-        System.out.println(" "+car1.getMake()+"  "+car1.getModel()+" of Year "+car1.getYear()+" can go upto(top-speed): "+car1.maxSpeed()+"km/hr");
+            Car car1 = new Car("Ford", "Mustang", 2008);
+            System.out.println(" " + car1.getMake() + "  " + car1.getModel() + " of Year " + car1.getYear() + " can " +
+                    "go upto(top-speed): " + car1.maxSpeed() + "km/hr");
 
-        System.out.println();
-        MotorCycle bike1=new MotorCycle("Hero","Karizma ZMR",2023);
-        System.out.println(" "+bike1.getMake()+"  "+bike1.getModel()+" of Year "+bike1.getYear()+" can go upto(top-speed): "+bike1.maxSpeed()+"km/hr");
+            System.out.println();
+            MotorCycle bike1 = new MotorCycle("Hero", "Karizma ZMR", 2023);
+            System.out.println(" " + bike1.getMake() + "  " + bike1.getModel() + " of Year " + bike1.getYear() + " " +
+                    "can go upto(top-speed): " + bike1.maxSpeed() + "km/hr");
 
-        System.out.println();
-        Bicycle cycle1= new Bicycle("Hero","gearup",2008);
-        System.out.println(" "+cycle1.getMake()+"  "+cycle1.getModel()+" of Year "+cycle1.getYear()+" can go upto(top-speed): "+cycle1.maxSpeed()+"km/hr");
-
+            System.out.println();
+            Bicycle cycle1 = new Bicycle("Hero", "gearup", 2008);
+            System.out.println(" " + cycle1.getMake() + "  " + cycle1.getModel() + " of Year " + cycle1.getYear() +
+                    " can go upto(top-speed): " + cycle1.maxSpeed() + "km/hr");
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

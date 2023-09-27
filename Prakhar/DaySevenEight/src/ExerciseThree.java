@@ -4,28 +4,32 @@ public class ExerciseThree {
     // with specific behaviors. Use inheritance to model these account types.
     public static void main(String[] args) {
 
-        System.out.println("Bank Account Behaviour");
-        SavingAccount savAcc= new SavingAccount("Ayush",12436523,10000.0,3.5 );
-        System.out.println("Saving Account");
-        savAcc.accountDetails();
-        savAcc.deposit(10000);
-        savAcc.addInterest();
-        savAcc.withdraw(20000);
-        System.out.println();
-        System.out.println("After Deposit and withdrawal of Saving Account");
-        savAcc.accountDetails();
+        try {
+            System.out.println("Bank Account Behaviour");
+            SavingAccount savAcc = new SavingAccount("Ayush", 12436523, 10000.0, 3.5);
+            System.out.println("Saving Account");
+            savAcc.accountDetails();
+            savAcc.deposit(10000);
+            savAcc.addInterest();
+            savAcc.withdraw(20000);
+            System.out.println();
+            System.out.println("After Deposit and withdrawal of Saving Account");
+            savAcc.accountDetails();
 
 
-        System.out.println();
-        CheckingAccount chkAcc= new CheckingAccount("Yogesh",12436523,50000.0,10000);
-        System.out.println("Checking Account");
-        chkAcc.accountDetails();
-        chkAcc.deposit(2000);
-        chkAcc.withdraw(50000);
-        chkAcc.withdraw(300);
-        System.out.println();
-        System.out.println("After Deposit and withdrawal of Checking Account");
-        chkAcc.accountDetails();
+            System.out.println();
+            CheckingAccount chkAcc = new CheckingAccount("Yogesh", 12436523, 50000.0, 10000);
+            System.out.println("Checking Account");
+            chkAcc.accountDetails();
+            chkAcc.deposit(2000);
+            chkAcc.withdraw(50000);
+            chkAcc.withdraw(300);
+            System.out.println();
+            System.out.println("After Deposit and withdrawal of Checking Account");
+            chkAcc.accountDetails();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

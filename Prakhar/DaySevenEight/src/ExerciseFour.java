@@ -6,19 +6,23 @@ public class ExerciseFour {
     // that prints a generic animal sound. Override this method in subclasses to produce specific sounds for each
     // animal type.
     public static void main(String[] args) {
-        System.out.println();
-        System.out.println("Demonstrating polymorphism method overriding (check the class code) ");
+        try {
+            System.out.println();
+            System.out.println("Demonstrating polymorphism method overriding (check the class code) ");
 
 
-        Animal tig = new Tiger();
-        Animal dog = new Dog();
-        System.out.println();
-        tig.talk();
-        dog.talk();
+            Animal tig = new Tiger();
+            Animal dog = new Dog();
+            System.out.println();
+            tig.talk();
+            dog.talk();
 
-        Animal spar = new Sparrow();
-        System.out.println();
-        spar.talk();
+            Animal spar = new Sparrow();
+            System.out.println();
+            spar.talk();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

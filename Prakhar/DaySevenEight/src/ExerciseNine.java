@@ -4,29 +4,33 @@ public class ExerciseNine {
 //    "CheckingAccount" with methods for deposit, withdrawal, and balance inquiry. Implement these interfaces in
 //    concrete classes.
     public static void main(String[] args) {
-        System.out.println("Bank Account Behaviour");
-        ConcreteSavingAccount savAcc= new ConcreteSavingAccount("Ayush",12436523,10000.0,3.5 );
-        System.out.println("Saving Account ");
-        savAcc.accountDetails();
-        savAcc.deposit(10000);
-        savAcc.addInterest();
-        savAcc.withdraw(20000);
-        System.out.println();
-        System.out.println("After Deposit and withdrawal of Saving Account");
-        savAcc.accountDetails();
+        try {
+            System.out.println("Bank Account Behaviour");
+            System.out.println();
+            ConcreteSavingAccount savAcc = new ConcreteSavingAccount("Ayush", 12436523, 10000.0, 3.5);
+            System.out.println("Saving Account ");
+            savAcc.accountDetails();
+            savAcc.deposit(10000);
+            savAcc.addInterest();
+            savAcc.withdraw(20000);
+            System.out.println();
+            System.out.println("After Deposit and withdrawal of Saving Account");
+            savAcc.accountDetails();
 
 
-        System.out.println();
-        ConcreteCheckingAccount chkAcc= new ConcreteCheckingAccount("Yogesh",12436523,50000.0,10000);
-        System.out.println("Checking Account ");
-        chkAcc.accountDetails();
-        chkAcc.deposit(2000);
-        chkAcc.withdraw(50000);
-        chkAcc.withdraw(300);
-        System.out.println();
-        System.out.println("After Deposit and withdrawal of Checking Account");
-        chkAcc.accountDetails();
-
+            System.out.println();
+            ConcreteCheckingAccount chkAcc = new ConcreteCheckingAccount("Yogesh", 12436523, 50000.0, 10000);
+            System.out.println("Checking Account ");
+            chkAcc.accountDetails();
+            chkAcc.deposit(2000);
+            chkAcc.withdraw(50000);
+            chkAcc.withdraw(300);
+            System.out.println();
+            System.out.println("After Deposit and withdrawal of Checking Account");
+            chkAcc.accountDetails();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
@@ -50,13 +54,11 @@ class BankAccount2 {
 
     void deposit(int depositedMoney) {
         this.balance += depositedMoney;
-        System.out.println();
-        System.out.println("Net Balance after deposit: " + this.balance);
+        System.out.println("Net Balance after deposit of "+depositedMoney+": " + this.balance);
     }
     void deposit(double depositedMoney) {
         this.balance += depositedMoney;
-        System.out.println();
-        System.out.println("Net Balance after deposit: " + this.balance);
+        System.out.println("Net Balance after deposit of "+depositedMoney+": " + this.balance);
     }
 
     void withdraw(int withdrewMoney) {
@@ -66,7 +68,7 @@ class BankAccount2 {
             System.out.println("You Don't have enough balance to withdrew that money");
         } else {
             this.balance = net_bal;
-            System.out.println("Net Balance after withdrawing money: " + this.balance);
+            System.out.println("Net Balance after withdrawing money of "+withdrewMoney+": " + this.balance);
         }
 
     }

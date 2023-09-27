@@ -4,19 +4,23 @@ public class ExerciseTwo {
     // subclasses for different shapes like circle, rectangle, and triangle, and override the area calculation method
     // in each subclass.
     public static void main(String[] args) {
-        Circle circle1 = new Circle(20);
+        try {
+            Circle circle1 = new Circle(20);
 
-        System.out.println("In code you can checkout this is an example of hierarchy overloading");
-        System.out.println("Circle Area of radius= " + circle1.getRadius() + " : " + circle1.calculateArea());
-
-
-        //Rectangle
-        Rectangle rect1 = new Rectangle(10, 20);
-        System.out.println("Rectangle Area of length =" + rect1.getLength() + " & breadth = " + rect1.getBreadth() +
-                "  : " + rect1.calculateArea());
+            System.out.println("In code you can checkout this is an example of hierarchy overloading");
+            System.out.println();
+            System.out.println("Circle Area of radius= " + circle1.getRadius() + " : " + circle1.calculateArea());
 
 
+            //Rectangle
+            System.out.println();
+            Rectangle rect1 = new Rectangle(10, 20);
+            System.out.println("Rectangle Area of length =" + rect1.getLength() + " & breadth = " + rect1.getBreadth() + "  : " + rect1.calculateArea());
 
+
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

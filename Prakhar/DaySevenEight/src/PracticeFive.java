@@ -3,10 +3,14 @@ public class PracticeFive {
     // Showcase how the class fulfills the requirements of each interface.
 
     public static void main(String[] args) {
-        GraphicElement button = new GraphicElement("Button");
-        System.out.println("Example of multiple interface (check the code)");
-        button.click();
-        button.draw();
+        try {
+            GraphicElement button = new GraphicElement("Button");
+            System.out.println("Example of multiple interface (check the code)");
+            button.click();
+            button.draw();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -4,10 +4,14 @@ public class ExerciseEight {
 //    "Drawable" and "Clickable" with corresponding methods. Implement these interfaces in a class representing
 //    graphical elements.
     public static void main(String[] args) {
-        GraphicElement button = new GraphicElement("Button");
-        System.out.println("Example of multiple interface (check the code)");
-        button.click();
-        button.draw();
+        try{
+            GraphicElement button = new GraphicElement("Button");
+            System.out.println("Example of multiple interface (check the code)");
+            button.click();
+            button.draw();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

@@ -4,19 +4,26 @@ public class ExerciseTen {
 //    subclasses for different vehicle types (e.g., car, motorcycle). Additionally, implement interfaces for
 //    "Drivable" and "FuelEfficient" and showcase how the class combines both abstract class and interface features.
     public static void main(String[] args) {
-        System.out.println("Example of Abstract Class and Interface Combination(check code)");
+        try {
 
-        System.out.println();
-        Cars car1= new Cars("Ford","Mustang", 2008);
-        System.out.println(car1.getMake()+"  "+car1.getModel()+" of Year "+car1.getYear()+" can go upto(top-speed): "+car1.maxSpeed()+"km/hr  ");
-        car1.drive();
-        car1.fuelEfficient(true);//you can set true, if it is fuel efficient
+            System.out.println("Example of Abstract Class and Interface Combination(check code)");
 
-        System.out.println();
-        MotorCycles bike1=new MotorCycles("Hero","Karizma ZMR",2023);
-        System.out.println(bike1.getMake()+"  "+bike1.getModel()+" of Year "+bike1.getYear()+" can go upto(top-speed): "+bike1.maxSpeed()+"km/hr");
-        bike1.drive();
-        bike1.fuelEfficient(false);//you can set true, if it is not fuel efficient
+            System.out.println();
+            Cars car1 = new Cars("Ford", "Mustang", 2008);
+            System.out.println(car1.getMake() + "  " + car1.getModel() + " of Year " + car1.getYear() + " can go upto" +
+                    "(top-speed): " + car1.maxSpeed() + "km/hr  ");
+            car1.drive();
+            car1.fuelEfficient(true);//you can set true, if it is fuel efficient
+
+            System.out.println();
+            MotorCycles bike1 = new MotorCycles("Hero", "Karizma ZMR", 2023);
+            System.out.println(bike1.getMake() + "  " + bike1.getModel() + " of Year " + bike1.getYear() + " can go " +
+                    "upto(top-speed): " + bike1.maxSpeed() + "km/hr");
+            bike1.drive();
+            bike1.fuelEfficient(false);//you can set true, if it is not fuel efficient}
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 interface Drivable{

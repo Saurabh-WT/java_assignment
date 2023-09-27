@@ -2,25 +2,29 @@ public class PracticeTwo {
     //    Enhance the animal hierarchy from Exercise 1 to demonstrate polymorphism. Create a method in the superclass
     //    and override it in subclasses to display specific behaviors.
     public static void main(String[] args) {
-        System.out.println("Mammal1 sub-class Overriding Methods/Functions from Animal1 parent class");
-        Animal1 cat = new Mammal1();
-        cat.eat();
-        cat.walk();
-        cat.sleep();
+        try {
+            System.out.println("Mammal1 sub-class Overriding Methods/Functions from Animal1 parent class");
+            Animal1 cat = new Mammal1();
+            cat.eat();
+            cat.walk();
+            cat.sleep();
 
-        System.out.println();
-        System.out.println("Bird1 sub-class Overriding Methods/function from Animal1 parent class");
-        Animal1 sparrow = new Bird1();
-        sparrow.eat();
-        sparrow.walk();
-        sparrow.sleep();
+            System.out.println();
+            System.out.println("Bird1 sub-class Overriding Methods/function from Animal1 parent class");
+            Animal1 sparrow = new Bird1();
+            sparrow.eat();
+            sparrow.walk();
+            sparrow.sleep();
 
-        System.out.println();
-        System.out.println("Reptile1 sub-class Overriding Methods/function from Animal1 parent class");
-        Animal1 lizard =  new Reptile1();
-        lizard.eat();
-        lizard.walk();
-        lizard.sleep();
+            System.out.println();
+            System.out.println("Reptile1 sub-class Overriding Methods/function from Animal1 parent class");
+            Animal1 lizard = new Reptile1();
+            lizard.eat();
+            lizard.walk();
+            lizard.sleep();
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
