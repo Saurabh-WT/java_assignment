@@ -54,11 +54,11 @@ public class Exercise_3 {
             list.remove(3);
 
             //inserting an element in array list at last
-            //TIME COMPLEXITY IS O(1)
+            //TIME COMPLEXITY IS O(1) Amortized
             al.add(60);
 
             //inserting an element in array list at last
-            //TIME COMPLEXITY IS O(1)
+            //TIME COMPLEXITY IS O(1) WORST CASE
             list.addLast(60);
 
             //remove function in linked list without any parameters remove the first item

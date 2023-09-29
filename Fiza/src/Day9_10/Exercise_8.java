@@ -2,6 +2,7 @@ package Day9_10;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 //Exercise 8: ArrayList vs. LinkedList Performance
 //Write a Java program that measures and compares the time it takes to
@@ -9,68 +10,67 @@ import java.util.LinkedList;
 public class Exercise_8 {
     public static void main(String[] args) {
         try {
-            //create a linked list
-            LinkedList<Integer> list = new LinkedList<Integer>();
+            int n = 100000; // Number of elements to work with
+            // Create ArrayList and LinkedList
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            LinkedList<Integer> linkedList = new LinkedList<>();
 
-            list.add(10);
-            list.add(20);
-            list.add(30);
-            list.add(40);
-            list.add(50);
-            list.add(80);
-            list.add(90);
+            // Measure the time taken to add elements at the end
+            long startTime = System.nanoTime();
+            for (int i = 0; i < n; i++) {
+                arrayList.add(i);
+            }
+            long endTime = System.nanoTime();
+            long arrayListAddTime = endTime - startTime;
 
-            //create an array list
-            ArrayList<Integer> al = new ArrayList<Integer>();
-            al.add(10);
-            al.add(20);
-            al.add(30);
-            al.add(40);
-            al.add(50);
-            al.add(70);
-            al.add(90);
+            startTime = System.nanoTime();
+            for (int i = 0; i < n; i++) {
+                linkedList.add(i);
+            }
+            endTime = System.nanoTime();
+            long linkedListAddTime = endTime - startTime;
 
-            //inserting an element in array list at beginning
-            //TIME COMPLEXITY IS O(N)
-            al.add(0, 15);
+            System.out.println("Time taken to add " + n + " elements at the end:");
+            System.out.println("ArrayList: " + arrayListAddTime + " ns");
+            System.out.println("LinkedList: " + linkedListAddTime + " ns");
 
-            //inserting an element in linked list at beginning
-            //TIME COMPLEXITY IS O(1)
-            list.addFirst(15);
+            // Measure the time taken to remove elements from the beginning
+            startTime = System.nanoTime();
+            while (!arrayList.isEmpty()) {
+                arrayList.remove(0);
+            }
+            endTime = System.nanoTime();
+            long arrayListRemoveTime = endTime - startTime;
 
-            //inserting an element in array list in between
-            //TIME COMPLEXITY IS O(N)
-            al.add(1, 15);
+            startTime = System.nanoTime();
+            while (!linkedList.isEmpty()) {
+                linkedList.remove(0);
+            }
+            endTime = System.nanoTime();
+            long linkedListRemoveTime = endTime - startTime;
 
-            //inserting an element in linked list in between
-            //TIME COMPLEXITY IS O(N)
-            list.add(1, 15);
+            System.out.println("\nTime taken to remove " + n + " elements from the beginning:");
+            System.out.println("ArrayList: " + arrayListRemoveTime + " ns");
+            System.out.println("LinkedList: " + linkedListRemoveTime + " ns");
 
-            //deleting an element from the array list in between
-            //TIME COMPLEXITY IS O(N)
-            al.remove(3);
+            // Measure the time taken to iterate through elements
+            startTime = System.nanoTime();
+            for (Integer num : arrayList) {
+                // Iterating through the ArrayList without performing any operation
+            }
+            endTime = System.nanoTime();
+            long arrayListIterateTime = endTime - startTime;
 
-            //deleting an element from the linked list in between
-            //TIME COMPLEXITY IS O(N)
-            list.remove(3);
+            startTime = System.nanoTime();
+            for (Integer num : linkedList) {
+                // Iterating through the LinkedList without performing any operation
+            }
+            endTime = System.nanoTime();
+            long linkedListIterateTime = endTime - startTime;
 
-            //inserting an element in array list at last
-            //TIME COMPLEXITY IS O(1) WHICH IS AMORTIZED
-            al.add(60);
-
-            //inserting an element in array list at last
-            //TIME COMPLEXITY IS O(1)
-            list.addLast(60);
-
-            //searching an element in array list
-            //TIME COMPLEXITY IS O(N)
-            System.out.println(al.contains(10));
-            System.out.println(al.get(2));
-
-            //searching an element in linked list
-            //TIME COMPLEXITY IS O(N)
-            System.out.println(list.contains(10));
-            System.out.println(list.get(2));
+            System.out.println("\nTime taken to iterate through " + n + " elements:");
+            System.out.println("ArrayList: " + arrayListIterateTime + " ns");
+            System.out.println("LinkedList: " + linkedListIterateTime + " ns");
         }
         catch (IndexOutOfBoundsException e){
             System.out.println(e.getLocalizedMessage());
