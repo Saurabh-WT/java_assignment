@@ -74,7 +74,7 @@ public class ExerTwo {
                         account1.accountDetails();
                         break;
                     case 'E':
-                        break;
+                       System.exit(0);
                     default:
                         System.out.println("Invalid Choice, Try Again");
                         break;

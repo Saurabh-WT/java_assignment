@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 10: Abstract Class and Interface Combination
+//Create an abstract class "Vehicle" with attributes like make, model, and year. Implement this class in subclasses for different vehicle types (e.g., car, motorcycle). Additionally,
+// implement interfaces for "Drivable" and "FuelEfficient" and showcase how the class combines both abstract class and interface features.
 public class Exercise10 {
     public static void main(String[] args) {
         //car

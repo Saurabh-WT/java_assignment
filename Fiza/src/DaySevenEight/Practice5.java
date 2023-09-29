@@ -1,4 +1,5 @@
 package DaySevenEight;
+//Exercise 5: Implementing Multiple Interfaces
 //Create a Java program that demonstrates a class implementing multiple
 // interfaces with different methods. Showcase how the class fulfills the requirements of each interface.
 public class Practice5 {

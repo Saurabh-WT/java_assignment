@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 3: Bank Account Inheritance
+//Extend the bank account example from Day 8 to include different types of
+// accounts (e.g., savings, checking) with specific behaviors. Use inheritance to model these account types.
 public class Exercise3 {
     public static void main(String[] args) {
         //Saving Account object

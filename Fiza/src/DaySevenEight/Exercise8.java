@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 8: Multiple Interfaces
+//Build a Java program that demonstrates a class implementing multiple interfaces. Create interfaces for "Drawable" and "Clickable"
+// with corresponding methods. Implement these interfaces in a class representing graphical elements.
 public class Exercise8 {
     public static void main(String[] args) {
         GraphicalElements g = new GraphicalElements();

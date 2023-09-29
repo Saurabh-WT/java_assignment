@@ -1,4 +1,11 @@
 package DaySevenEight;
+//Exercise 4: Abstract Class and Interface Implementation
+//Create an abstract class called "Shape" with abstract methods for calculating area and perimeter. Implement this class in concrete
+// subclasses for different shapes (e.g., circle, rectangle). Also, implement interface to show additional behavior.
+
+//Exercise 6: Abstract Shape Class
+//Create an abstract class called "Shape" with abstract methods for calculating area and perimeter. Implement this class in subclasses for
+// different shapes (e.g., circle, rectangle).
 
 //Q4 in practice and Q6 in exercise
 public class Practice4AndEx6 {

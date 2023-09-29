@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 5: Encapsulation in Practice
+//Develop a Java class representing a library book with private fields for title, author, and ISBN. Implement getter and setter
+// methods to ensure encapsulation.
 public class Exercise5 {
     public static void main(String[] args) {
         LibraryBook b1 = new LibraryBook("Pilgrim's Progress", " John Bunyan", "3456236789432");

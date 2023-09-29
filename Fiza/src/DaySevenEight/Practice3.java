@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 3: Encapsulation Practice
+//Design a Java class representing a bank account with private fields for balance and account number.
+// Implement methods to deposit and withdraw money while ensuring encapsulation.
 public class Practice3 {
     public static void main(String[] args) {
         BankAccount b = new BankAccount(4567, 25000);

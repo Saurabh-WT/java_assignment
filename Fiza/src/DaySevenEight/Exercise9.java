@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 9: Banking Interfaces
+//Design a Java program that models a banking system using interfaces. Create interfaces for "SavingsAccount" and "CheckingAccount"
+// with methods for deposit, withdrawal, and balance inquiry. Implement these interfaces in concrete classes.
 public class Exercise9 {
     public static void main(String[] args) {
         //Saving account information

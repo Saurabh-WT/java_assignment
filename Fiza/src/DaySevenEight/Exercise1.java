@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 1: Inheritance Hierarchy
+//Create a Java inheritance hierarchy representing different types of vehicles, including cars,
+// motorcycles, and bicycles. Include common attributes and methods in a superclass, and specific attributes and methods in subclasses.
 public class Exercise1 {
     public static void main(String[] args) {
         //Car object

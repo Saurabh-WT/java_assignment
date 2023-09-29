@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 7: Interface Implementation
+//Define a Java interface called "Resizable" with a method for resizing objects.
+// Implement this interface in classes for various resizable objects, such as images and windows.
 public class Exercise7 {
     public static void main(String[] args) {
         Resizable r = new Image(10,15);

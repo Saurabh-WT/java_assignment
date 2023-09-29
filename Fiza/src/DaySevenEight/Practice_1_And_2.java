@@ -1,7 +1,10 @@
 package DaySevenEight;
-// Q1. Design a Java program that models an inheritance hierarchy for animals. Create subclasses for specific types of animals
+//Exercise 1: Creating Inheritance Hierarchy
+// Design a Java program that models an inheritance hierarchy for animals. Create subclasses for specific types of animals
 // (e.g., mammals, birds, reptiles) that inherit from a common superclass.
-// Q2. Enhance the animal hierarchy from Exercise 1 to demonstrate polymorphism. Create a method in the superclass and override it in
+
+//Exercise 2: Implementing Polymorphism
+// Enhance the animal hierarchy from Exercise 1 to demonstrate polymorphism. Create a method in the superclass and override it in
 // subclasses to display specific behaviors.
 public class Practice_1_And_2 {
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package DaySevenEight;
-
+//Exercise 2: Method Overriding
+//Design a Java program with a superclass "Shape" that contains an abstract method to calculate the area.
+// Create  subclasses for different shapes like circle, rectangle, and triangle, and override the area calculation method in each subclass.
 public class Exercise2 {
     public static void main(String[] args) {
 
