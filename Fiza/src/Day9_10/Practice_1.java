@@ -5,37 +5,94 @@ package Day9_10;
 import java.util.ArrayList;
 
 public class Practice_1 {
+    static int deleteEle(int arr[], int n, int x)
+    {
+        int i = 0;
+
+        for(i = 0; i < n; i++)
+        {
+            if(arr[i] == x)
+                break;
+        }
+
+        if(i == n)
+            return n;
+
+        for(int j = i; j < n - 1; j++)
+        {
+            arr[j] = arr[j + 1];
+        }
+
+        return n-1;
+    }
+    static int insert(int arr[], int n, int x, int cap, int pos)
+    {
+        if(n == cap)
+            return n;
+
+        int idx = pos - 1;
+
+        for(int i = n - 1; i >= idx; i--)
+        {
+            arr[i + 1] = arr[i];
+        }
+
+        arr[idx] = x;
+
+        return n + 1;
+    }
     public static void main(String[] args) {
         try {
-            int arr[] = new int[5];
+            int arr[] = new int[5], cap = 5, n = 3;
 
-            //adding elements in array
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = i + 1;
+            arr[0] = 5; arr[1] = 10; arr[2] = 20;
+
+            System.out.println("Before Insertion");
+
+            for(int i=0; i < n; i++)
+            {
+                System.out.print(arr[i]+" ");
             }
 
-            for (int k : arr) {
-                System.out.print(k + " ");
+            System.out.println();
+
+            int x = 7, pos = 2;
+
+            n = insert(arr, n, x, cap, pos);
+
+            System.out.println("After Insertion");
+
+            for(int i=0; i < n; i++)
+            {
+                System.out.print(arr[i]+" ");
             }
 
-            //updating the array elements
-            arr[1] = 5;
-            arr[2] = 10;
+            System.out.println();
 
-            //deleting an array element
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] == 1) {
-                    for (int j = i; j < (arr.length - 1); j++)
-                        arr[j] = arr[j + 1];
-                    System.out.println("\nRemoved the element successfully!");
-                    break;
-                }
+            //deletion operation
+            x=20;
+
+            System.out.println("Before Deletion");
+
+            for(int i=0; i < n; i++)
+            {
+                System.out.print(arr[i]+" ");
             }
 
-            System.out.println("\nThe new array is: ");
-            for (int i = 0; i < (arr.length - 1); i++)
-                System.out.print(arr[i] + " ");
-        } catch (NullPointerException e) {
+            System.out.println();
+
+
+            n = deleteEle(arr, n, x);
+
+            System.out.println("After Deletion");
+
+            for(int i=0; i < n; i++)
+            {
+                System.out.print(arr[i]+" ");
+            }
+
+
+        } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getLocalizedMessage());
         }
 
