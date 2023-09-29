@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.toMap;
 public class Exercise_10 {
     public static void main(String[] args) {
 
-        String str = "The apartment was on the top floor—a small living-room, a small dining-room, a small bedroom, and a bath";
+        String str = "The yellow fog that rubs its back upon the window-panes, The yellow smoke that rubs its muzzle on the window-panes";
 
         Map<String, Integer> hashMap = new HashMap<>();
 
@@ -42,7 +42,11 @@ public class Exercise_10 {
         List<Map.Entry<String, Integer>> list = new ArrayList<>(hashMap.entrySet());
         Collections.sort(list, (entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
 
-        System.out.println(list);
+        // Display the word frequencies in descending order
+        for (Map.Entry<String, Integer> entry : list) {
+            System.out.print(entry.getKey() + ": " + entry.getValue()+",  ");
+        }
+
 
     }
 }
