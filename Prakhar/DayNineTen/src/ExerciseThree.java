@@ -10,9 +10,9 @@ public class ExerciseThree {
 
             // Adding elements
             linkedList.add("Yogesh"); // Adds to the end
-            linkedList.addFirst("Prakhar"); // Adds to the beginning
-            linkedList.addLast("Ayush"); // Adds to the end
-            linkedList.add(1, "Vishwamitra"); // Inserts at index 1
+            linkedList.addFirst("Prakhar"); // Adds to the beginning Time Complexity: O(1)
+            linkedList.addLast("Ayush"); // Adds to the end Time Complexity: O(1)
+            linkedList.add(1, "Vishwamitra"); // Inserts at index 1 Time Complexity: O(n)
 
             linkedList.add("Arif");
             linkedList.add("fiza");
@@ -28,10 +28,10 @@ public class ExerciseThree {
             }
 
             // Removing elements
-            linkedList.remove(); // Removes and returns the first element
-            linkedList.removeFirst(); // Removes and returns the first element
+            linkedList.remove(); // Removes and returns the first element Time Complexity: O(1)
+            linkedList.removeFirst(); // Removes and returns the first element Time Complexity: O(1)
             linkedList.removeLast(); // Removes and returns the last element
-//            linkedList.remove(0); // Removes the element at index 1
+//            linkedList.remove(0); // Removes the element at index 1 Time Complexity: O(n)
 
             // Display the LinkedList after removal
             System.out.println("\nLinkedList after removing elements:");
@@ -40,8 +40,8 @@ public class ExerciseThree {
             }
 
 
-            System.out.println("\nDoes LinkedList contain 'Yogesh'? " + linkedList.contains("Yogesh"));
-            System.out.println("Index of 'Ayush': " + linkedList.indexOf("Ayush"));
+            System.out.println("\nDoes LinkedList contain 'Yogesh'? " + linkedList.contains("Yogesh"));// contains(element) Time Complexity: O(n)
+            System.out.println("Index of 'Ayush': " + linkedList.indexOf("Ayush"));//Time Complexity: O(n) in the worst case
         }catch (Exception e) {
             throw new RuntimeException(e);
         }
