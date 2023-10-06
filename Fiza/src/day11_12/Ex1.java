@@ -12,6 +12,8 @@ public class Ex1 {
         al.add("green");
         al.add("blue");
         al.add("black");
+        al.add("print");
+        //using enhanced for loop to iterate over the Array List
         for(String e: al){
             System.out.print(e+" ");
         }

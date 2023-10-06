@@ -21,6 +21,10 @@ public class Ex4 {
             ll.add('g');
             ll.add('h');
             ll.add('i');
+            ll.add('k');
+            ll.add('o');
+            ll.add('u');
+
 
             ListIterator<Character> li = ll.listIterator();
             while (li.hasNext()) {
@@ -33,6 +37,9 @@ public class Ex4 {
 
         }
         catch (ConcurrentModificationException e){
+            System.out.println(e.getLocalizedMessage());
+        }
+        catch (RuntimeException e){
             System.out.println(e.getLocalizedMessage());
         }
     }

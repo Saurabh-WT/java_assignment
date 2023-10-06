@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Practice_2 {
     public static void main(String[] args) {
         try {
+            // Scenario 1: Handling an unchecked exception (Divide by zero)
             int result = divide(10, 0);
             System.out.println("Result: " + result);
         } catch (ArithmeticException e) {
@@ -19,7 +20,7 @@ public class Practice_2 {
         } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("Array Index Out of Bounds Exception: " + e.getMessage());
         }
-        // Scenario 4: Handling multiple exceptions (unchanged)
+        // Scenario 3: Handling multiple exceptions (unchanged)
         try {
             int[] numbers = {1, 2, 3};
             System.out.println("Value at index 4: " + numbers[4]);
@@ -30,13 +31,34 @@ public class Practice_2 {
         } catch (Exception e) {
             System.err.println("An unexpected exception occurred: " + e.getMessage());
         }
-        // Scenario 6: Handling an unchecked exception (unchanged)
+        try{
+            // Scenario 4: Handling an NullPointerException
+            String str = null;
+            int length = str.length(); // This line will throw NullPointerException
+            System.out.println("Length: " + length);
+
+        }
+        catch (NullPointerException e){
+            System.err.println(e.getLocalizedMessage());
+        }
+        try{
+            // Scenario 5: Handling Number format exception
+            String str = "abc";
+            int num = Integer.parseInt(str); // This line will throw NumberFormatException
+            System.err.println("Number: " + num);
+
+        }
+        catch (NumberFormatException e){
+            System.err.println("Number Format exception "+e.getLocalizedMessage());
+        }
+        // Scenario 6: Handling an unchecked exception
         try {
             int number = readIntegerInput();
             System.out.println("Input number: " + number);
         } catch (InputMismatchException e) {
             System.err.println("Input Mismatch Exception: " + e.getMessage());
         }
+
 
     }
 
