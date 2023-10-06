@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class MySQLDatabaseReadExample {
+public class Ex9 {
 
     public static void main(String[] args) {
         Connection connection = null;
