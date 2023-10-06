@@ -45,8 +45,8 @@ public class ExerciseSeven {
                     if (!bookAuthorMap.isEmpty()) {
                         System.out.println("\nList of Books (Sorted by Title):");
                         for (String bookTitl : bookAuthorMap.keySet()) {
-                            String auth = bookAuthorMap.get(bookTitl);
-                            System.out.println("Title: " + bookTitl + " - Author: " + auth);
+                            String authorr = bookAuthorMap.get(bookTitl);
+                            System.out.println("Title: " + bookTitl + " - Author: " + authorr);
                         }
                     } else {
                         System.out.println("The book list is empty.");

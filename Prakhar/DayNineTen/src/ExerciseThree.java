@@ -22,6 +22,7 @@ public class ExerciseThree {
 
 
             // Display the LinkedList
+
             System.out.println("LinkedList after adding elements:");
             for (String elem : linkedList) {
                 System.out.println(elem);

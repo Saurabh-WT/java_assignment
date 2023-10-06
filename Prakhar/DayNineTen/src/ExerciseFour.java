@@ -8,6 +8,7 @@ public class ExerciseFour {
         try{
             HashSet<Integer> numbers = new HashSet<Integer>();
 
+
             // Adding numbers to a HashSet
             System.out.println("Adding numbers to a HashSet");
             numbers.add(10);
