@@ -32,7 +32,5 @@ public class Exercise_9 {
             System.out.println("Caught exception");
             System.out.println(e.getLocalizedMessage());
         }
-
-
     }
 }
