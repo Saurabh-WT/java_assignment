@@ -9,10 +9,10 @@ public class Ex6 {
     public static void main(String[] args) {
         try {
             //scanning the file using the file path
-            Scanner sc = new Scanner(new File("type.txt"));
+            Scanner sc = new Scanner(new File("type.in"));
         }
         catch (FileNotFoundException e) {
-            System.err.println(e.getLocalizedMessage());
+            System.err.println("File not found exception "+e.getLocalizedMessage());
         }
 
         try {
