@@ -34,8 +34,12 @@ public class Ex9 {
             // Process the query result (print it, for example)
             while (resultSet.next()) {
                 // Process and print data here
-                System.out.println("Column1: " + resultSet.getString("column1"));
-                System.out.println("Column2: " + resultSet.getString("column2"));
+                System.out.print(" ID: " + resultSet.getString("id"));
+                System.out.print(", Roll Number: " + resultSet.getString("roll_no."));
+                System.out.print(", Name: " + resultSet.getString("name"));
+                System.out.print(" and Department: " + resultSet.getString("depart"));
+
+                System.out.println();
                 // Add more columns as needed
             }
         } catch (SQLException e) {

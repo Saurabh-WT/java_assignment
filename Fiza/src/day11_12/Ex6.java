@@ -9,7 +9,7 @@ public class Ex6 {
     public static void main(String[] args) {
         try {
             //scanning the file using the file path
-            Scanner sc = new Scanner(new File("type.in"));
+            Scanner sc = new Scanner(new File("text.txt"));
         }
         catch (FileNotFoundException e) {
             System.err.println("File not found exception "+e.getLocalizedMessage());
@@ -17,7 +17,7 @@ public class Ex6 {
 
         try {
             //writing in a specified file
-            FileWriter wr = new FileWriter("day11_12/text.txt");
+            FileWriter wr = new FileWriter("text.txt");
             wr.write("This line is using file write method");
             wr.close();
             System.out.println("Successfully wrote");
@@ -29,9 +29,9 @@ public class Ex6 {
 
         try{
             //creating a custom exception which throws error if file obj doesn't exists
-            File obj = new File("fiza.txt");
+            File obj = new File("text.txt");
             if(obj.exists()){
-                System.out.println(obj.getName());
+                System.out.println("Your file name is = "+obj.getName());
             }
             else{
                 throw new FileNotFound();
