@@ -1,3 +1,4 @@
+import org.h2.Driver;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -44,8 +45,16 @@ public class ExerciseNine {
                 System.out.println("Employee ID: " + empId + ", Employee Name: " + empName);
             }
 
+            String selectSQL1 = "SELECT * FROM employee1";
+            resultSet = statement.executeQuery(selectSQL1);
+
+            while (resultSet.next()) {
+                int empId = resultSet.getInt("employee_id");
+                String empName = resultSet.getString("employee_name");
+                System.out.println("Employee ID: " + empId + ", Employee Name: " + empName);
+            }
         } catch (SQLException e) {
-            System.err.println("Database Error: " + e.getMessage());
+            System.err.println("Database Error(implicit generation): " + e.getMessage());
         } finally {
             // Step 5: Close database resources in the finally block
             try {
