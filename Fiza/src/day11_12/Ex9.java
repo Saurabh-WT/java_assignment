@@ -28,7 +28,7 @@ public class Ex9 {
             statement = connection.createStatement();
 
             // Execute a database query (replace with your SQL query)
-            String query = "SELECT * FROM your_table";
+            String query = "SELECT * FROM table_1";
             resultSet = statement.executeQuery(query);
 
             // Process the query result (print it, for example)
