@@ -17,7 +17,9 @@ public class Ex5 {
             al.add(20);
             al.add(30);
             al.add(40);
-
+//Array references are stored at contiguous location but object are stored at different location, individual
+// items are actual references and we can modify the items using references but to modify the arraylist(eg. removing an item)
+// then we need to use iterator based method.
             try {
                 for (Integer e : al) {
                     al.remove(3);
@@ -28,7 +30,8 @@ public class Ex5 {
                 //System.out.println("ConcurrentModificationException is thrown");
                 System.err.println(e.getLocalizedMessage()+" Concurrent modification exception");
             }
-        //using the iterator method to remove or update element in any collection will not throw concurrent modification exception
+        //using the iterator method to remove or update element in any collection will
+        // not throw concurrent modification exception
         try {
             Iterator<Integer> it = al.iterator();
             while (it.hasNext()) {

@@ -28,14 +28,18 @@ public class Ex9 {
             statement = connection.createStatement();
 
             // Execute a database query (replace with your SQL query)
-            String query = "SELECT * FROM your_table";
+            String query = "SELECT * FROM table_1";
             resultSet = statement.executeQuery(query);
 
             // Process the query result (print it, for example)
             while (resultSet.next()) {
                 // Process and print data here
-                System.out.println("Column1: " + resultSet.getString("column1"));
-                System.out.println("Column2: " + resultSet.getString("column2"));
+                System.out.print(" ID: " + resultSet.getString("id"));
+                System.out.print(", Roll Number: " + resultSet.getString("roll_no."));
+                System.out.print(", Name: " + resultSet.getString("name"));
+                System.out.print(" and Department: " + resultSet.getString("depart"));
+
+                System.out.println();
                 // Add more columns as needed
             }
         } catch (SQLException e) {
