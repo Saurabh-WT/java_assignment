@@ -34,13 +34,15 @@ public class ExerciseFive {
                     }
                 }
 
-            System.out.println("List after updating elements: "+list);
+            System.out.println("List after updating elements(by removing 30): "+list);
 
-            System.out.println("testing");
 
             for (int num:list) {
-                if(num==40) list.add(20);
+                if(num==40) list.add(20);//this will throw an error
             }
+            System.out.println("List after adding elements: "+list);
+
+            System.out.println("program reach the end");
 
         } catch (ConcurrentModificationException e) {
             System.err.println("AS WE CAN SEE IF WE TRY TO ADD OR REMOVE ELEMENT IN ENHANCED FOR EACH LOOP IT THROW "+e);
