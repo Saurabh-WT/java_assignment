@@ -21,6 +21,13 @@ public class Ex6 {
             wr.write("This line is using file write method");
             wr.close();
             System.out.println("Successfully wrote");
+            FileReader fr = new FileReader("text.txt");
+            Scanner myRead = new Scanner(fr);
+            while (myRead.hasNextLine()){
+                String data = myRead.nextLine();
+                System.out.println(data);
+            }
+            myRead.close();
         }
         catch (IOException e) {
             System.err.println("An error occured");
