@@ -2,6 +2,7 @@ package com.prakhar.advancejavarestapicrud.Controller;
 
 import com.prakhar.advancejavarestapicrud.Entity.Product;
 import com.prakhar.advancejavarestapicrud.Repo.ProductRepository;
+import com.prakhar.advancejavarestapicrud.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,50 +14,40 @@ import java.util.Optional;
 @RequestMapping("/api/products")
 public class ProductController {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productSer;
 
     @GetMapping
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productSer.getAllProducts();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable int id) {
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            return ResponseEntity.ok(product.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return productSer.getProductById(id);
     }
 
     @PostMapping
     public Product createProduct(@RequestBody Product product) {
-        return productRepository.save(product);
+        return productSer.createProduct(product);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product updatedProduct) {
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            Product existingProduct = product.get();
-            existingProduct.setName(updatedProduct.getName());
-            existingProduct.setPrice(updatedProduct.getPrice());
-            return ResponseEntity.ok(productRepository.save(existingProduct));
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return productSer.updateProduct(id,updatedProduct);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable int id) {
-        Optional<Product> product = productRepository.findById(id);
-        if (product.isPresent()) {
-            productRepository.delete(product.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+       return productSer.deleteProduct(id);
     }
+    @GetMapping("/searchbar/{name}")
+    public List<Product> getAllProductsByName(@PathVariable String name) {
+        return productSer.getAllProductsByName(name);
+    }
+    @GetMapping("/searchbar/price/{price}")
+    public List<Product> getAllProductsByPrice(@PathVariable double price) {
+        return productSer.getAllProductsByPrice(price);
+    }
+
 }
 
