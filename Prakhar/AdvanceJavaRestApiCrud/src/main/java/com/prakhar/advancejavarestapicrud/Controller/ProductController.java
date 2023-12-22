@@ -1,20 +1,23 @@
 package com.prakhar.advancejavarestapicrud.Controller;
 
 import com.prakhar.advancejavarestapicrud.Entity.Product;
-import com.prakhar.advancejavarestapicrud.Repo.ProductRepository;
+
 import com.prakhar.advancejavarestapicrud.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
-    @Autowired
-    private ProductService productSer;
+    private final ProductService productSer;
+
+    public ProductController(ProductService productSer) {
+        this.productSer = productSer;
+    }
 
     @GetMapping
     public List<Product> getAllProducts() {
