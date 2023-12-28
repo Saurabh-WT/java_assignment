@@ -10,6 +10,7 @@ import com.prakhar.security.repository.BookHistoryRepository;
 import com.prakhar.security.repository.BookRepository;
 import com.prakhar.security.repository.LibraryRepository;
 import org.antlr.v4.runtime.misc.LogManager;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -127,7 +128,7 @@ public class BookService {
             if (optionalBook.isPresent()) {
                 Book existingBook = optionalBook.get();
 
-                // Update only specific fields
+                // Update only specific fields which was sent
                 if(updatedBook.getBookName()!=null) {
                     existingBook.setBookName(updatedBook.getBookName());
                 }
@@ -152,9 +153,10 @@ public class BookService {
                         existingBook.setLibrary(library);
                     }
                 }
+
                 Book savedBook = bookRepository.save(existingBook);
                 // Save a historical version before updating
-                saveBookHistory(savedBook, "Admin");
+                saveBookHistory(optionalBook.get(), "Admin");
                 return ResponseEntity.ok(savedBook);
             } else {
                 return ResponseEntity.notFound().build();
@@ -168,8 +170,11 @@ public class BookService {
     private void saveBookHistory(Book book, String updatedBy) {
         BookHistory bookHistory = new BookHistory();
         BeanUtils.copyProperties(book, bookHistory); // Copy properties from Book to BookHistory
+//        ModelMapper modelMapper = new ModelMapper();
+//        modelMapper.map(book, bookHistory);
         bookHistory.setUpdatedBy(updatedBy);
         bookHistory.setUpdateTimestamp(LocalDateTime.now());
+        bookHistory.setId(null);
 
         bookHistoryRepository.save(bookHistory);
     }

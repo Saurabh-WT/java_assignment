@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+//@MappedSuperclass
 public class Book {
     @Id
     @GeneratedValue
@@ -37,10 +39,12 @@ public class Book {
     private Library library;
 
     @CreationTimestamp
-    public LocalDateTime created_at;
+    @Column(name = "created_at")
+    public LocalDateTime createdTimestamp;
 
     @UpdateTimestamp
-    public LocalDateTime updated_at;
+    @Column(name = "updated_at")
+    public LocalDateTime updatedTimestamp;
 
 
 }
