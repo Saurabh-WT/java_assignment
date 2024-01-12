@@ -1,8 +1,8 @@
-package com.prakhar.security.controller;
+package com.prakhar.booksystem.controller;
 
-import com.prakhar.security.model.Book;
-import com.prakhar.security.model.Library;
-import com.prakhar.security.service.LibraryService;
+import com.prakhar.booksystem.model.Book;
+import com.prakhar.booksystem.model.Library;
+import com.prakhar.booksystem.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

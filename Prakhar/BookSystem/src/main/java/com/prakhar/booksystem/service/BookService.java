@@ -1,16 +1,14 @@
-package com.prakhar.security.service;
+package com.prakhar.booksystem.service;
 
-import com.prakhar.security.controller.BookController;
-import com.prakhar.security.model.Author;
-import com.prakhar.security.model.Book;
-import com.prakhar.security.model.BookHistory;
-import com.prakhar.security.model.Library;
-import com.prakhar.security.repository.AuthorRepository;
-import com.prakhar.security.repository.BookHistoryRepository;
-import com.prakhar.security.repository.BookRepository;
-import com.prakhar.security.repository.LibraryRepository;
-import org.antlr.v4.runtime.misc.LogManager;
-import org.modelmapper.ModelMapper;
+import com.prakhar.booksystem.controller.BookController;
+import com.prakhar.booksystem.model.Author;
+import com.prakhar.booksystem.model.Book;
+import com.prakhar.booksystem.model.BookHistory;
+import com.prakhar.booksystem.model.Library;
+import com.prakhar.booksystem.repository.AuthorRepository;
+import com.prakhar.booksystem.repository.BookHistoryRepository;
+import com.prakhar.booksystem.repository.BookRepository;
+import com.prakhar.booksystem.repository.LibraryRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,37 +49,35 @@ public class BookService {
     }
 
 
-
-    public ResponseEntity getAllBooks(){
-        try{
+    public ResponseEntity getAllBooks() {
+        try {
             List<Book> books = bookRepository.findAll();
             return ResponseEntity.ok(books);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error retrieving books.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
-    public ResponseEntity getBook(int id){
-        try{
+    public ResponseEntity getBook(int id) {
+        try {
             Optional<Book> optionalBook = bookRepository.findById(id);
-            return optionalBook.map(book -> ResponseEntity.ok(book))
-                    .orElseGet(() -> ResponseEntity.notFound().build());
+            return optionalBook.map(book -> ResponseEntity.ok(book)).orElseGet(() -> ResponseEntity.notFound().build());
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error getting a book.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
-    public ResponseEntity addBook(Book book){
+    public ResponseEntity addBook(Book book) {
         // Check if the publisher and library are provided
-        if (book.getPublisher() == null || book.getLibrary() == null || book.getAuthor()==null) {
+        if (book.getPublisher() == null || book.getLibrary() == null || book.getAuthor() == null) {
             return ResponseEntity.badRequest().body("Author, Publisher and Library are mandatory for creating a book.");
         }
 
-        Author existingAuthor = authorRepository.findByFirstNameAndLastName(
-                book.getAuthor().getFirstName(), book.getAuthor().getLastName());
+        Author existingAuthor = authorRepository.findByFirstNameAndLastName(book.getAuthor().getFirstName(),
+                book.getAuthor().getLastName());
 
         if (existingAuthor != null) {
             // Author already exists, use the existing author
@@ -113,55 +109,56 @@ public class BookService {
         }
 
 
-        try{
+        try {
             Book savedBook = bookRepository.save(book);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedBook);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error adding a book.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
-    public ResponseEntity updateBook(int id, Book updatedBook){
-        try{
+    public ResponseEntity updateBook(int id, Book updatedBook) {
+        try {
             Optional<Book> optionalBook = bookRepository.findById(id);
             if (optionalBook.isPresent()) {
                 Book existingBook = optionalBook.get();
 
                 // Update only specific fields which was sent
-                if(updatedBook.getBookName()!=null) {
+                if (updatedBook.getBookName() != null) {
                     existingBook.setBookName(updatedBook.getBookName());
                 }
 
-                if(updatedBook.getPublisher()!=null) {
+                if (updatedBook.getPublisher() != null) {
                     existingBook.setPublisher(updatedBook.getPublisher());
                 }
 
-                if(updatedBook.getAuthor()!=null) {
-                    if(updatedBook.getAuthor().getId()==null){
+                if (updatedBook.getAuthor() != null) {
+                    if (updatedBook.getAuthor().getId() == null) {
                         return ResponseEntity.badRequest().body("Author id is required in case you want to update it.");
-                    }else {
-                        authorService.updateAuthor(updatedBook.getAuthor().getId(),updatedBook.getAuthor());
+                    } else {
+                        authorService.updateAuthor(updatedBook.getAuthor().getId(), updatedBook.getAuthor());
                         existingBook.setPublisher(updatedBook.getPublisher());
                     }
                 }
-                if(updatedBook.getLibrary()!=null) {
-                    if(updatedBook.getLibrary().getId()==null){
-                        return ResponseEntity.badRequest().body("Library id is required in case you want to update it.");
-                    }else {
-                        Library library =libraryService.updateLibrary(updatedBook.getLibrary().getId(),updatedBook.getLibrary());
+                if (updatedBook.getLibrary() != null) {
+                    if (updatedBook.getLibrary().getId() == null) {
+                        return ResponseEntity.badRequest().body("Library id is required in case you want to update it" +
+                                ".");
+                    } else {
+                        Library library = libraryService.updateLibrary(updatedBook.getLibrary().getId(),
+                                updatedBook.getLibrary());
                         existingBook.setLibrary(library);
                     }
                 }
-
-                Book savedBook = bookRepository.save(existingBook);
                 // Save a historical version before updating
                 saveBookHistory(optionalBook.get(), "Admin");
+                Book savedBook = bookRepository.save(existingBook);
                 return ResponseEntity.ok(savedBook);
             } else {
                 return ResponseEntity.notFound().build();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error updating a book.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
@@ -179,8 +176,8 @@ public class BookService {
         bookHistoryRepository.save(bookHistory);
     }
 
-    public ResponseEntity deleteBook(int id){
-        try{
+    public ResponseEntity deleteBook(int id) {
+        try {
             Optional<Book> optionalBook = bookRepository.findById(id);
             if (optionalBook.isPresent()) {
                 bookRepository.deleteById(id);
@@ -189,7 +186,7 @@ public class BookService {
                 return ResponseEntity.notFound().build();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.error("Error deleting a book.", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }

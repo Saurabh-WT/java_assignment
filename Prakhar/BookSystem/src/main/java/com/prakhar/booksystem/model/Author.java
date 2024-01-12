@@ -1,4 +1,4 @@
-package com.prakhar.security.model;
+package com.prakhar.booksystem.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

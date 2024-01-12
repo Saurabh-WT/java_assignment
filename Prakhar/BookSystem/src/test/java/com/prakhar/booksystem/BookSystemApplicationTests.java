@@ -1,10 +1,10 @@
-package com.prakhar.security;
+package com.prakhar.booksystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SecurityApplicationTests {
+class BookSystemApplicationTests {
 
 //    @Test
 //    void contextLoads() {

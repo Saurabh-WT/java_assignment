@@ -1,8 +1,8 @@
-package com.prakhar.security.service;
+package com.prakhar.booksystem.service;
 
 
-import com.prakhar.security.model.Author;
-import com.prakhar.security.repository.AuthorRepository;
+import com.prakhar.booksystem.model.Author;
+import com.prakhar.booksystem.repository.AuthorRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

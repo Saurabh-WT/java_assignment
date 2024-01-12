@@ -1,4 +1,4 @@
-package com.prakhar.security.model;
+package com.prakhar.booksystem.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
