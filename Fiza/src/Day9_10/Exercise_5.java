@@ -13,6 +13,7 @@ public class Exercise_5 {
             t.add("Apple");
             t.add("Dog");
             t.add("Cat");
+            t.add("Fox");
 
             //using iterator method to traverse through the treeset
             Iterator it = t.iterator();
