@@ -52,6 +52,9 @@ public class BookService {
     public ResponseEntity getAllBooks() {
         try {
             List<Book> books = bookRepository.findAll();
+            if (books.isEmpty())
+                return ResponseEntity.ok("Books not found");
+
             return ResponseEntity.ok(books);
         } catch (Exception e) {
             logger.error("Error retrieving books.", e);
@@ -143,8 +146,7 @@ public class BookService {
                 }
                 if (updatedBook.getLibrary() != null) {
                     if (updatedBook.getLibrary().getId() == null) {
-                        return ResponseEntity.badRequest().body("Library id is required in case you want to update it" +
-                                ".");
+                        return ResponseEntity.badRequest().body("Library id is required in case you want to update it");
                     } else {
                         Library library = libraryService.updateLibrary(updatedBook.getLibrary().getId(),
                                 updatedBook.getLibrary());
@@ -154,6 +156,7 @@ public class BookService {
                 // Save a historical version before updating
                 saveBookHistory(optionalBook.get(), "Admin");
                 Book savedBook = bookRepository.save(existingBook);
+
                 return ResponseEntity.ok(savedBook);
             } else {
                 return ResponseEntity.notFound().build();
